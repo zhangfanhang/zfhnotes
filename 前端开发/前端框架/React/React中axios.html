@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React中axios | zfh&#39;s notes</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="description" content="一个互联网前端民工的开发笔记库">
+    <meta name="theme-color" content="#ffd214">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <link rel="preload" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/css/0.styles.5b10c71f.css" as="style"><link rel="preload" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/app.227698a4.js" as="script"><link rel="preload" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/2.326d7be9.js" as="script"><link rel="preload" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/53.7cdc2a52.js" as="script"><link rel="preload" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/4.a0146097.js" as="script"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/10.13d1d530.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/100.9d60cfbe.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/101.4ed28680.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/102.748fdcc5.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/103.1c3273c8.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/104.b58dc8e8.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/105.f41acee5.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/106.6ebcdb4f.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/107.6d63f9d5.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/108.4d3fafcc.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/109.5b1531f0.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/11.a901da6f.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/110.5b6aadbc.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/111.38477a3b.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/112.a404ccda.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/113.93f03071.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/114.06c51475.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/115.5777180e.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/116.7e8f0d9e.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/117.445ba9a8.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/118.67f6c034.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/119.d5e4452a.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/12.a75bf772.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/120.ec9e1c6a.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/121.cf1a6c95.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/122.57903e7f.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/123.54d2abeb.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/124.52ce9053.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/125.b5b496ee.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/13.afe1ee82.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/14.a4db097c.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/15.d3cc8762.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/16.fc036fdf.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/17.483f7b22.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/18.ac4c1791.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/19.97ce8b7d.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/20.14c8cc28.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/21.450d47de.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/22.a8fbadf5.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/23.d1c8642e.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/24.3bccc5b5.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/25.cbe288ad.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/26.6a77ab0d.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/27.cb980704.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/28.3f52da80.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/29.7e90b036.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/3.099c9c22.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/30.d9a78b86.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/31.016999b2.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/32.b01ce507.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/33.23915f7b.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/34.a4c69afc.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/35.14654322.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/36.49d02365.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/37.00950315.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/38.13ecba12.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/39.0e6d46c3.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/40.9b4030d9.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/41.8f66bd68.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/42.3b168600.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/43.7c222fa2.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/44.f8f67500.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/45.e0bd8f77.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/46.57763417.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/47.a22975fc.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/48.fbeaf250.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/49.5276f96c.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/5.baca3e62.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/50.6b2df3a4.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/51.8264fdb4.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/52.d61255d0.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/54.090a6883.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/55.2f4da549.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/56.54e5ca96.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/57.11784996.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/58.6b775c5a.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/59.9d78f347.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/6.197fa299.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/60.445873b2.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/61.6f499abf.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/62.41ea6451.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/63.bc5fa5df.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/64.e99cf1ac.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/65.e60324ce.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/66.79a72b55.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/67.13e66a0b.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/68.d89b6c90.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/69.99172080.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/7.f9fd7841.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/70.779b8056.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/71.7444e034.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/72.5702a263.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/73.4eab3b04.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/74.6bd9417d.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/75.d0f32e36.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/76.3e04af34.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/77.b8e909d7.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/78.1b597517.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/79.46cd4e72.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/8.f164e50c.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/80.f9f0a2c8.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/81.5a17c55d.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/82.12cb0f75.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/83.043456fc.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/84.68b0334c.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/85.f8e4feae.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/86.5b5bfdc8.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/87.e3507f1f.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/88.4a343088.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/89.3b7d86bc.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/9.a37f00c1.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/90.f722c98f.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/91.46854866.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/92.67a3d5d5.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/93.db069917.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/94.fd4e2517.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/95.c38339d4.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/96.5b24e2a6.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/97.de058bbb.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/98.6bc1d80c.js"><link rel="prefetch" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/99.914c6b0c.js">
+    <link rel="stylesheet" href="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/css/0.styles.5b10c71f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/LOGO_52x52.png" alt="zfh's notes" class="logo"> <span class="site-name can-hide">zfh's notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/数据库/MySQL.html" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/数据库/mongoDB.html" class="nav-link">
+  mongoDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发" class="dropdown-title"><span class="title">前端开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发" class="mobile-dropdown-title"><span class="title">前端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/前端开发/Html.html" class="nav-link">
+  Html
+</a></li><li class="dropdown-subitem"><a href="/前端开发/Css/Css3/基础与盒模型.html" class="nav-link">
+  Css
+</a></li><li class="dropdown-subitem"><a href="/前端开发/JavaScript/JS基础/变量与数据类型.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端进阶-框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/前端开发/前端框架/Vue/Vue核心.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/前端开发/前端框架/React/JSX核心语法.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端进阶-其他
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/前端开发/TypeScript/TS基础.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/前端开发/移动开发/移动Web开发入门.html" class="nav-link">
+  移动开发
+</a></li><li class="dropdown-subitem"><a href="/前端开发/重学前端/JavaScript.html" class="nav-link">
+  重学前端
+</a></li><li class="dropdown-subitem"><a href="/前端开发/微信小程序.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务端开发" class="dropdown-title"><span class="title">服务端开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="服务端开发" class="mobile-dropdown-title"><span class="title">服务端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/服务端开发/node入门/Node.js基础.html" class="nav-link">
+  Node入门
+</a></li><li class="dropdown-item"><!----> <a href="/服务端开发/深入node/邂逅Node.html" class="nav-link">
+  深入Node
+</a></li><li class="dropdown-item"><!----> <a href="/服务端开发/Koa2框架.html" class="nav-link">
+  Koa2
+</a></li></ul></div></div><div class="nav-item"><a href="/前端面试/Html面试题.html" class="nav-link">
+  前端面试
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发工具" class="mobile-dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/开发工具/前端工具/Babel.html" class="nav-link">
+  Babel
+</a></li><li class="dropdown-subitem"><a href="/开发工具/前端工具/Mock.js.html" class="nav-link">
+  Mock.js
+</a></li><li class="dropdown-subitem"><a href="/开发工具/前端工具/Webpack.html" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/开发工具/git.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/开发工具/homebrew.html" class="nav-link">
+  homebrew
+</a></li><li class="dropdown-subitem"><a href="/开发工具/Docker.html" class="nav-link">
+  Docker
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机通识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/基础知识/计算机通识/计算机网络/概述篇.html" class="nav-link">
+  计算机网络
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/基础知识/前端相关/浏览器工作原理与实践/01-chrome架构:仅仅打开了一个页面,为什么会有4个进程.html" class="nav-link">
+  浏览器工作原理与实践
+</a></li><li class="dropdown-subitem"><a href="/基础知识/前端相关/本地存储.html" class="nav-link">
+  本地存储
+</a></li><li class="dropdown-subitem"><a href="/基础知识/前端相关/前后端数据交互与HTTP协议.html" class="nav-link">
+  前后端数据交互与HTTP协议
+</a></li><li class="dropdown-subitem"><a href="/基础知识/前端相关/Ajax&amp;Fetch与跨域请求.html" class="nav-link">
+  Ajax&amp;Fetch与跨域请求
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发记录" class="dropdown-title"><span class="title">开发记录</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发记录" class="mobile-dropdown-title"><span class="title">开发记录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/开发记录/CSS/CSS文本溢出处理方式.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/JS/关于async和await.html" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/Node/在Vuekoa项目中如何解决跨域和cookie问题.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/Vue/vue如何实现界面刷新.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/React/开发流程管理平台学习心得.html" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/数据结构算法/栈.html" class="nav-link">
+  数据结构算法
+</a></div><div class="nav-item"><a href="/杂记.html" class="nav-link">
+  杂记
+</a></div><div class="nav-item"><a href="/优质链接.html" class="nav-link">
+  优质链接
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/数据库/MySQL.html" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/数据库/mongoDB.html" class="nav-link">
+  mongoDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端开发" class="dropdown-title"><span class="title">前端开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端开发" class="mobile-dropdown-title"><span class="title">前端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/前端开发/Html.html" class="nav-link">
+  Html
+</a></li><li class="dropdown-subitem"><a href="/前端开发/Css/Css3/基础与盒模型.html" class="nav-link">
+  Css
+</a></li><li class="dropdown-subitem"><a href="/前端开发/JavaScript/JS基础/变量与数据类型.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端进阶-框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/前端开发/前端框架/Vue/Vue核心.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/前端开发/前端框架/React/JSX核心语法.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端进阶-其他
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/前端开发/TypeScript/TS基础.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/前端开发/移动开发/移动Web开发入门.html" class="nav-link">
+  移动开发
+</a></li><li class="dropdown-subitem"><a href="/前端开发/重学前端/JavaScript.html" class="nav-link">
+  重学前端
+</a></li><li class="dropdown-subitem"><a href="/前端开发/微信小程序.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务端开发" class="dropdown-title"><span class="title">服务端开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="服务端开发" class="mobile-dropdown-title"><span class="title">服务端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/服务端开发/node入门/Node.js基础.html" class="nav-link">
+  Node入门
+</a></li><li class="dropdown-item"><!----> <a href="/服务端开发/深入node/邂逅Node.html" class="nav-link">
+  深入Node
+</a></li><li class="dropdown-item"><!----> <a href="/服务端开发/Koa2框架.html" class="nav-link">
+  Koa2
+</a></li></ul></div></div><div class="nav-item"><a href="/前端面试/Html面试题.html" class="nav-link">
+  前端面试
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发工具" class="mobile-dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/开发工具/前端工具/Babel.html" class="nav-link">
+  Babel
+</a></li><li class="dropdown-subitem"><a href="/开发工具/前端工具/Mock.js.html" class="nav-link">
+  Mock.js
+</a></li><li class="dropdown-subitem"><a href="/开发工具/前端工具/Webpack.html" class="nav-link">
+  Webpack
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/开发工具/git.html" class="nav-link">
+  git
+</a></li><li class="dropdown-subitem"><a href="/开发工具/homebrew.html" class="nav-link">
+  homebrew
+</a></li><li class="dropdown-subitem"><a href="/开发工具/Docker.html" class="nav-link">
+  Docker
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机通识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/基础知识/计算机通识/计算机网络/概述篇.html" class="nav-link">
+  计算机网络
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端相关
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/基础知识/前端相关/浏览器工作原理与实践/01-chrome架构:仅仅打开了一个页面,为什么会有4个进程.html" class="nav-link">
+  浏览器工作原理与实践
+</a></li><li class="dropdown-subitem"><a href="/基础知识/前端相关/本地存储.html" class="nav-link">
+  本地存储
+</a></li><li class="dropdown-subitem"><a href="/基础知识/前端相关/前后端数据交互与HTTP协议.html" class="nav-link">
+  前后端数据交互与HTTP协议
+</a></li><li class="dropdown-subitem"><a href="/基础知识/前端相关/Ajax&amp;Fetch与跨域请求.html" class="nav-link">
+  Ajax&amp;Fetch与跨域请求
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发记录" class="dropdown-title"><span class="title">开发记录</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发记录" class="mobile-dropdown-title"><span class="title">开发记录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/开发记录/CSS/CSS文本溢出处理方式.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/JS/关于async和await.html" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/Node/在Vuekoa项目中如何解决跨域和cookie问题.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/Vue/vue如何实现界面刷新.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/开发记录/React/开发流程管理平台学习心得.html" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/数据结构算法/栈.html" class="nav-link">
+  数据结构算法
+</a></div><div class="nav-item"><a href="/杂记.html" class="nav-link">
+  杂记
+</a></div><div class="nav-item"><a href="/优质链接.html" class="nav-link">
+  优质链接
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/前端开发/前端框架/React/JSX核心语法.html" class="sidebar-link">JSX核心语法</a></li><li><a href="/前端开发/前端框架/React/React脚手架.html" class="sidebar-link">React脚手架</a></li><li><a href="/前端开发/前端框架/React/React组件化开发.html" class="sidebar-link">React组件化开发</a></li><li><a href="/前端开发/前端框架/React/React中的CSS.html" class="sidebar-link">React中的CSS</a></li><li><a href="/前端开发/前端框架/React/AntDesgin组件库.html" class="sidebar-link">AntDesgin组件库</a></li><li><a href="/前端开发/前端框架/React/React中axios.html" class="active sidebar-link">React中axios</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#为什么不是" class="sidebar-link">为什么不是...?</a></li><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#为什么是-axios" class="sidebar-link">为什么是 Axios？</a></li><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#axios-的基本使用" class="sidebar-link">Axios 的基本使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#发送请求" class="sidebar-link">发送请求</a></li><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#配置信息" class="sidebar-link">配置信息</a></li><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#拦截器" class="sidebar-link">拦截器</a></li></ul></li><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#axios-库的二次封装" class="sidebar-link">axios 库的二次封装</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#为什么要封装" class="sidebar-link">为什么要封装？</a></li><li class="sidebar-sub-header"><a href="/前端开发/前端框架/React/React中axios.html#axios-二次封装" class="sidebar-link">axios 二次封装</a></li></ul></li></ul></li><li><a href="/前端开发/前端框架/React/React的过渡动画.html" class="sidebar-link">React的过渡动画</a></li><li><a href="/前端开发/前端框架/React/Redux.html" class="sidebar-link">Redux</a></li><li><a href="/前端开发/前端框架/React/React-router.html" class="sidebar-link">React-router</a></li><li><a href="/前端开发/前端框架/React/ReactHook.html" class="sidebar-link">React Hook</a></li><li><a href="/前端开发/前端框架/React/React与TypeScript.html" class="sidebar-link">React与TypeScript</a></li><li><a href="/前端开发/前端框架/React/React的SSR.html" class="sidebar-link">React的SSR</a></li><li><a href="/前端开发/前端框架/React/React好用的库.html" class="sidebar-link">React好用的库</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p><a href="https://www.axios-http.cn/" target="_blank" rel="noopener noreferrer">官方文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://mp.weixin.qq.com/s/MTj0Or-QFmv9a7BugO6--A" target="_blank" rel="noopener noreferrer">React 系列十三 - axios 库的使用<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="为什么不是"><a href="#为什么不是" class="header-anchor">#</a> 为什么不是...?</h2> <ol><li>Jquery-ajax:没什么好说的</li> <li>Fetch API：Fetch 是一个 low-level（底层）的 API，没有帮助你封装好各种各样的功能 和实现</li></ol> <h2 id="为什么是-axios"><a href="#为什么是-axios" class="header-anchor">#</a> 为什么是 Axios？</h2> <p>Vue 作者也是推荐在 vue 中使用 axios(尤大说好就是好 👌)</p> <h2 id="axios-的基本使用"><a href="#axios-的基本使用" class="header-anchor">#</a> Axios 的基本使用</h2> <h3 id="发送请求"><a href="#发送请求" class="header-anchor">#</a> 发送请求</h3> <p>react 一般在<code>componentDidMount</code>生命周期函数中发生网络请求</p> <p>🌰 例子：</p> <div class="language-jsx extra-class"><pre class="language-jsx"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> PureComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">res</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">url:</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>res<span class="token punctuation">.</span>url<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">async</span> <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'https://httpbin.org/get'</span><span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">res</span><span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>发送 get 请求</li> <li>发送 post 请求</li> <li>多个请求的合并</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> request1 <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'https://httpbin.org/get'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'why'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> request2 <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'https://httpbin.org/post'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'kobe'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+axios
+    <span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>request1<span class="token punctuation">,</span> request2<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>res1<span class="token punctuation">,</span> res2<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res1<span class="token punctuation">,</span> res2<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><ul><li>使用 async、await 发送请求</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">async</span> <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;https://httpbin.org/get&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;kobe&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">40</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="配置信息"><a href="#配置信息" class="header-anchor">#</a> 配置信息</h3> <ul><li>优先是请求的 config 参数配置</li> <li>其次是实例的 default 中的配置</li> <li>最后是创建实例时的配置</li></ul> <h3 id="拦截器"><a href="#拦截器" class="header-anchor">#</a> 拦截器</h3> <div class="language-js extra-class"><pre class="language-js"><code>axios<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 1.发送网络请求时，在页面中添加一个loading组件作为动画；</span>
+
+  <span class="token comment">// 2.某些网络请求要求用户必须登录，可以在请求中判断是否携带了token，没有携带token直接跳转到login页面；</span>
+
+  <span class="token comment">// 3.对某些请求参数进行序列化；</span>
+  <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> err<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+axios<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> response<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">&amp;&amp;</span> err<span class="token punctuation">.</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>err<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">case400</span><span class="token operator">:</span>
+        err<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">&quot;请求错误&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token literal-property property">case401</span><span class="token operator">:</span>
+        err<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">&quot;未授权访问&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> err<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="axios-库的二次封装"><a href="#axios-库的二次封装" class="header-anchor">#</a> axios 库的二次封装</h2> <h3 id="为什么要封装"><a href="#为什么要封装" class="header-anchor">#</a> 为什么要封装？</h3> <p>为什么我们要对 axios 进行二次封装呢？</p> <ul><li>默认情况下我们是可以直接使用 axios 来进行开发的；</li> <li>但是我们考虑一个问题，假如有 100 多处中都直接依赖 axios，突然间有一天 axios 出现了重大 bug，并且该库已经不再维护，这个时候你如何处理呢？</li> <li>大多数情况下我们会寻找一个新的网络请求库或者自己进行二次封装；</li> <li>但是有 100 多处都依赖了 axios，方便我们进行修改吗？我们所有依赖 axios 库的地方都需要进行修改</li> <li>如果是自己进行了二次封装，并且暴露一套自己的 API:只需要重新封装另一个网络请求库(只需要修改一个 js 文件)</li></ul> <h3 id="axios-二次封装"><a href="#axios-二次封装" class="header-anchor">#</a> axios 二次封装</h3> <p>创建一个 service 文件夹（其他名字都可以），用于存放所有的网络请求相关的内容。</p> <p>创建文件 config.js，用于存放一些配置信息：</p> <p><a href="https://blog.csdn.net/sayUonly/article/details/118225775" target="_blank" rel="noopener noreferrer">React 使用.env.*进行环境部署<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">TIMEOUT</span> <span class="token operator">=</span> <span class="token number">5000</span>
+
+<span class="token keyword">const</span> devBaseURL <span class="token operator">=</span> <span class="token string">'https://httpbin.org'</span>
+<span class="token keyword">const</span> proBaseURL <span class="token operator">=</span> <span class="token string">'https://production.org'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> baseURL <span class="token operator">=</span>
+    process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'development'</span> <span class="token operator">?</span> devBaseURL <span class="token operator">:</span> proBaseURL
+</code></pre></div><p>创建 request.js，用于封装请求对象：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">TIMEOUT</span><span class="token punctuation">,</span> baseURL <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./config'</span>
+
+<span class="token keyword">const</span> instance <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token constant">TIMEOUT</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">baseURL</span><span class="token operator">:</span> baseURL<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+axios<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+    <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1.发送网络请求时，在页面中添加一个loading组件作为动画；</span>
+
+        <span class="token comment">// 2.某些网络请求要求用户必须登录，可以在请求中判断是否携带了token，没有携带token直接跳转到login页面；</span>
+
+        <span class="token comment">// 3.对某些请求参数进行序列化；</span>
+        <span class="token keyword">return</span> config
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> err
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+instance<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+    <span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> response<span class="token punctuation">.</span>data
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">&amp;&amp;</span> err<span class="token punctuation">.</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>err<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token number">400</span><span class="token operator">:</span>
+                    err<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">'请求错误'</span>
+                    <span class="token keyword">break</span>
+                <span class="token keyword">case</span> <span class="token number">401</span><span class="token operator">:</span>
+                    err<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">'未授权访问'</span>
+                    <span class="token keyword">break</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> err
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> instance
+</code></pre></div><p>测试：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">equest</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'/get'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'why'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>error<span class="token punctuation">)</span>
+
+<span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'/post'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'kobe'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>error<span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2022年05月20日</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/前端开发/前端框架/React/AntDesgin组件库.html" class="prev">
+        AntDesgin组件库
+      </a></span> <span class="next"><a href="/前端开发/前端框架/React/React的过渡动画.html">
+        React的过渡动画
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div></div><!----><!----><!----></div></div>
+    <script src="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/app.227698a4.js" defer></script><script src="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/2.326d7be9.js" defer></script><script src="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/53.7cdc2a52.js" defer></script><script src="https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/js/4.a0146097.js" defer></script>
+  </body>
+</html>

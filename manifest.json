@@ -1,0 +1,21 @@
+{
+    "name": "zfh's notes",
+    "short_name": "ZN",
+    "display": "standalone",
+    "description": "一个互联网前端民工的开发笔记库",
+    "start_url": ".",
+    "id": "/",
+    "background_color": "#f1f1f1",
+    "icons": [
+        {
+            "src": "https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/LOGO_52x52.png",
+            "sizes": "52x52",
+            "type": "image/png"
+        },
+        {
+            "src": "https://zfh-oss.oss-cn-shanghai.aliyuncs.com/docs-assets/assets/LOGO_288x288.png",
+            "sizes": "288x288",
+            "type": "image/png"
+        }
+    ]
+}
